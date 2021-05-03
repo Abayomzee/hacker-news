@@ -3,7 +3,10 @@ import "./button.scss";
 
 const Button = ({ type, text, handleClick }) => {
   return (
-    <button className={`btn ${type}`} onClick={()=>handleClick()}>
+    <button
+      className={`btn ${type}`}
+      onClick={handleClick ? () => handleClick() : null}
+    >
       {text}
     </button>
   );
