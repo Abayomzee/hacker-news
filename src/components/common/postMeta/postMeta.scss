@@ -1,0 +1,35 @@
+.post-meta {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 11px;
+  color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+
+  & > * {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
+
+.post-time {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+
+  &__icon {
+    max-width: 12px;
+    max-height: 12px;
+    margin-right: 3px;
+  }
+}
+
+.post__delete {
+  margin-left: auto;
+  cursor: pointer;
+  display: inline-block;
+}

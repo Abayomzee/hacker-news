@@ -1,0 +1,83 @@
+.course {
+  &-title {
+    max-width: 50%;
+    margin-top: 4rem;
+  }
+
+  &__info-n-action {
+    @include flex-rowwrap-aicenter;
+    margin: 2.5rem 0;
+
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: $color-16;
+  }
+
+  &__infos {
+    &:not(:last-child) {
+      margin-right: 3.5rem;
+    }
+  }
+
+  &__created-date {
+    @include flex-row-aicenter;
+    padding-left: 2.8rem;
+
+    position: relative;
+    &::before {
+      position: absolute;
+      content: url(../../img/calendar.svg);
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__is-published {
+    @include flex-row-aicenter;
+    position: relative;
+    padding-left: 2.8rem;
+
+    &.published {
+      &::before {
+        position: absolute;
+        content: url(../../img/circle_check.svg);
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.course-view {
+  &__blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3.5rem;
+  }
+
+  &__card {
+    // height: 400px;
+    background-color: $color-white;
+    border-radius: 0.4rem;
+
+    &-top {
+      padding: 2.5rem 2rem 1rem;
+      border-bottom: 1px solid $color-29;
+    }
+  }
+
+  &__card-content {
+    padding: 2.5rem 2rem 3.5rem;
+  }
+}
+
+.promo__img {
+  max-width: 6.3rem;
+  max-height: 6.3rem;
+  display: block;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+

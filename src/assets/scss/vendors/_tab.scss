@@ -1,0 +1,91 @@
+// .navigator {
+//         display: flex;
+//         flex-flow: ro wrap;
+//         border-bottom: 1px solid rgba(168, 168, 168, 0.349);
+//         padding-top: 10px;
+//         font-family: "Courier New", Courier, monospace;
+//       }
+
+//       [class*="nav--"] {
+//         padding-bottom: 15px;
+//         cursor: pointer;
+//         position: relative;
+//       }
+
+//       [class*="nav--"]:not(:last-child) {
+//         margin-right: 30px;
+//       }
+
+//       [class*="nav--"]::before {
+//         content: "";
+//         position: absolute;
+//         left: 0;
+//         bottom: 0;
+//         width: 100%;
+//         height: 0;
+//         background-color: #d84d4d;
+//         transition: 0.3s;
+//       }
+
+//       [class*="nav--"]:hover::before {
+//         height: 4px;
+//       }
+
+//       [class*="nav--"].active::before {
+//         height: 4px;
+//       }
+
+//       [class*="tab--"] {
+//         height: 400px;
+//       }
+
+//       [class*="tab--"] {
+//         display: none;
+//         height: 400px;
+//       }
+
+//       [class*="tab--"].active {
+//         display: block;
+//       }
+
+//       .bg-red {
+//         background-color: red;
+//       }
+//       .bg-green {
+//         background-color: green;
+//       }
+//       .bg-yellow {
+//         background-color: yellow;
+//       }
+//       .bg-pink {
+//         background-color: pink;
+//       }
+
+//       @keyframes moveInFromBotton {
+//         0% {
+//           visibility: hidden;
+//           opacity: 0;
+//           transform: translateY(30px);
+//         }
+//         100% {
+//           visibility: visible;
+//           opacity: 1;
+//           transform: translateY(0);
+//         }
+//       }
+//       @keyframes fadeIn {
+//         0% {
+//           opacity: 0;
+//         }
+//         100% {
+//           opacity: 1;
+//         }
+//       }
+
+//       .moveInFromBotton {
+//         animation: moveInFromBotton 0.5s linear;
+//         animation-timing-function: ease-in;
+//       }
+//       .fadeIn {
+//         animation: fadeIn 0.5s linear;
+//       }

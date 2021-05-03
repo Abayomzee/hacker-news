@@ -1,0 +1,12 @@
+$row-width: 360px;
+
+.center {
+  max-width: $row-width;
+  margin: 0 auto;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

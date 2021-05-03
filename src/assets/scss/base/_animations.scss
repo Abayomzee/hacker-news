@@ -1,0 +1,22 @@
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0.2;
+    transform: translateX(-1.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    opacity: 0.2;
+    transform: translateY(-1.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

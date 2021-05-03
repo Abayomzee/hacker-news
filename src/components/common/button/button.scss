@@ -1,0 +1,45 @@
+$color-head: rgba(0, 0, 0, 82%);
+$color-bg-grey: #f2f2f2;
+$color-bg-main: #fbc91b;
+
+.btn {
+  border: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 100%;
+  cursor: pointer;
+  border-radius: 12px;
+  color: $color-head;
+  transition: 0.3s;
+
+  &--sm {
+    padding: 8px 20px;
+    background-color: $color-bg-grey;
+
+    &:active,
+    &:active,
+    &:hover {
+      background-color: $color-bg-main;
+    }
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &--big {
+    padding: 15px;
+    width: 100%;
+    background-color: $color-bg-main;
+    margin: {
+      top: 20px;
+      bottom: 20px;
+    }
+  }
+
+  &:active {
+    outline: none;
+  }
+}

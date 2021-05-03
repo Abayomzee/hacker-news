@@ -1,0 +1,11 @@
+$color-white: #ffffff;
+$color-1: #00000014;
+
+.header {
+  display: flex;
+  justify-content: center;
+  background: $color-white;
+  box-shadow: 0 3px 28px $color-1;
+  padding: 30px 10px;
+  margin-bottom: 20px;
+}

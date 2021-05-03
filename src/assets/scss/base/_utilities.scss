@@ -1,0 +1,107 @@
+// Alignment
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+// Margins ******************
+.m {
+  &-y-40px {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  &-y-30px-15px {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &-y-10px {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &-l-auto {
+    margin-left: auto;
+  }
+  &-l-15px {
+    margin-left: 1.5rem;
+  }
+
+  &-r-25px {
+    margin-right: 2.5rem;
+  }
+
+  &-r-15px {
+    margin-right: 1.5rem;
+  }
+
+  &-r-6px {
+    margin-right: 0.6rem;
+  }
+
+  &-t-auto {
+    margin-top: auto;
+  }
+
+  &-t-5px {
+    margin-top: 0.5rem;
+  }
+
+  &-t-8px {
+    margin-top: 0.8rem;
+  }
+
+  &-t-10px {
+    margin-top: 1rem;
+  }
+
+  &-t-20px {
+    margin-top: 2rem;
+  }
+
+  &-t-25px {
+    margin-top: 2.5rem;
+  }
+
+  &-t-60px {
+    margin-top: 6rem;
+  }
+
+  &-t-100px {
+    margin-top: 10rem;
+  }
+
+  &-b-10px {
+    margin-bottom: 1rem;
+  }
+
+  &-b-20px {
+    margin-bottom: 2rem;
+  }
+
+  &-b-40px {
+    margin-bottom: 4rem;
+  }
+
+  &-b-50px {
+    margin-bottom: 5rem;
+  }
+}
+
+// Padding *************
+.p {
+}
+
+// Color ********
+.color {
+}
+
+// Media Queries
+.mq-phone {
+  @include responsive(phone) {
+    display: none;
+  }
+}

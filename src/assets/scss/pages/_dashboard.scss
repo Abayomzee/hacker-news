@@ -1,0 +1,23 @@
+.warning {
+  background: $color-white;
+  border-radius: 0.4rem;
+  padding: 2rem 1.5rem;
+  margin: 2rem 0 2.5rem;
+
+  @include flex-row-aicenter;
+  &__icon {
+    // vertical-align: middle;
+    width: 2rem;
+    height: 2rem;
+  }
+  &__text {
+    display: inline-block;
+    // vertical-align: middle;
+    margin-left: 0.6rem;
+
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
+    color: $color-16;
+  }
+}
