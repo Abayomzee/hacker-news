@@ -15,11 +15,12 @@ const Home = () => {
   const [isFetching, setIsFetching] = useState(false);
   //setting tha initial page
   const [page, setPage] = useState(0);
-  //we need to know if there is more data
-  const [HasMore, setHasMore] = useState(true);
+  // we need to know if there is more data
+  // const [HasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     loadMore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadMore = () => {
@@ -34,7 +35,7 @@ const Home = () => {
         setItems((prevItems) => [...new Set([...prevItems, ...res.data])]);
 
         setPage((prevPage) => prevPage + 1);
-        setHasMore(res.data.length > 0);
+        // setHasMore(res.data.length > 0);
         setIsFetching(false);
       })
       .catch((err) => console.log(err));
