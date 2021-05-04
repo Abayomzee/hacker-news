@@ -5,7 +5,6 @@ import Paragraph from "./../paragraph/Paragraph";
 import "./postCard.scss";
 
 const PostCard = ({ title, body, ...rest }) => {
-  console.log("Post Card: rendered");
   return (
     <div className="post-card">
       <Heading title={title ? title : ""} />

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://hacker-news.firebaseio.com/v0";
+axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
     error.response &&
@@ -12,9 +12,11 @@ axios.interceptors.response.use(null, (error) => {
   return Promise.reject(error);
 });
 
+/* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
   post: axios.post,
   get: axios.get,
   put: axios.put,
   patch: axios.patch,
+  delete: axios.delete,
 };

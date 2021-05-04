@@ -1,16 +1,19 @@
+import React, { lazy, Suspense } from "react";
 import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
-import Home from "./components/pages/Home";
-import Post from "./components/pages/Post";
+import Spinner from "./components/common/spinner/Spiner";
+
+const Home = lazy(() => import("./components/pages/Home"));
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/:id" component={Post} />
-        <Redirect to="/" />
-      </Switch>
-    </BrowserRouter>
+    <Suspense fallback={<Spinner />}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Redirect to="/" />
+        </Switch>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 

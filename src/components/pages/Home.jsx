@@ -6,8 +6,8 @@ import PostCard from "../common/postCard/PostCard";
 import Nav from "./../common/nav/Nav";
 import Button from "./../common/button/Button";
 import Footer from "../common/footer/Footer";
-import axios from "axios";
 import Spinner from "../common/spinner/Spiner";
+import { getPosts, deletePost } from "./../../services/postServices";
 
 const Home = () => {
   //we change here
@@ -16,7 +16,7 @@ const Home = () => {
   //setting tha initial page
   const [page, setPage] = useState(0);
   // we need to know if there is more data
-  // const [HasMore, setHasMore] = useState(true);
+  // const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     loadMore();
@@ -26,22 +26,17 @@ const Home = () => {
   const loadMore = () => {
     setIsFetching(true);
 
-    axios({
-      method: "GET",
-      url: "https://jsonplaceholder.typicode.com/posts",
-      params: { _page: page, _limit: 2 },
-    })
-      .then((res) => {
-        setItems((prevItems) => [...new Set([...prevItems, ...res.data])]);
+    getPosts(page).then((res) => {
+      setItems((prevItems) => [...new Set([...prevItems, ...res.data])]);
 
-        setPage((prevPage) => prevPage + 1);
-        // setHasMore(res.data.length > 0);
-        setIsFetching(false);
-      })
-      .catch((err) => console.log(err));
+      setPage((prevPage) => prevPage + 1);
+      // setHasMore(res.data.length > 0);
+      setIsFetching(false);
+    });
   };
 
-  const deletePost = (id) => {
+  const removePost = (id) => {
+    deletePost(id);
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
@@ -57,7 +52,7 @@ const Home = () => {
               id={item.id}
               title={item.title}
               body={item.body}
-              handleDelete={deletePost}
+              handleDelete={removePost}
             />
           ))}
           <Button
@@ -65,6 +60,7 @@ const Home = () => {
             text={items.length > 0 && isFetching ? <Spinner /> : "Load More"}
             handleClick={loadMore}
           />
+
           <Footer />
         </Center>
       </Row>
