@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Header from "../common/header/Header";
 import Center from "./../common/center/Center";
 import Row from "./../common/row/Row";
@@ -23,6 +23,7 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Load posts
   const loadMore = () => {
     setIsFetching(true);
 
@@ -35,10 +36,19 @@ const Home = () => {
     });
   };
 
+  // Delete a post
   const removePost = (id) => {
     deletePost(id);
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
+
+  // Delayed page rendering in order to make Preloader visible (Althoug not necessary)
+  useMemo(() => {
+    let v = 0;
+    while (v < 900000000) {
+      v++;
+    }
+  }, []);
 
   return (
     <>
