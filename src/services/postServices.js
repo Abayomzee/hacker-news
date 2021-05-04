@@ -1,7 +1,6 @@
 import http from "./httpServices";
 
 const postsUrl = "/posts";
-const deleteUrl = "/post";
 
 export const getPosts = async (page) => {
   try {
@@ -16,7 +15,7 @@ export const getPosts = async (page) => {
 
 export const deletePost = async (id) => {
   try {
-    const res = http.delete(`${deleteUrl}/${id}`).then((res) => res);
+    const res = http.delete(`${postsUrl}/${id}`).then((res) => res);
     return res;
   } catch (error) {
     console.log(error);
