@@ -8,6 +8,10 @@ import Button from "./../common/button/Button";
 import Footer from "../common/footer/Footer";
 import Spinner from "../common/spinner/Spiner";
 import { getPosts, deletePost } from "./../../services/postServices";
+import ModalLayout from "../common/modal-layout/ModalLayout";
+import ModalChild from "../common/modal-child/ModalChild";
+import PostForm from "../common/Forms/PostForm";
+import UpdateForm from "./../common/Forms/UpdateForm";
 
 const Home = () => {
   //we change here
@@ -17,6 +21,9 @@ const Home = () => {
   const [page, setPage] = useState(0);
   // we need to know if there is more data
   // const [hasMore, setHasMore] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
+  const [postToUpdate, setPostToUpdate] = useState({});
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     loadMore();
@@ -42,7 +49,36 @@ const Home = () => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  // Delayed page rendering in order to make Preloader visible (Althoug not necessary)
+  const modalOpen = () => {
+    setOpenModal(true);
+  };
+  const modalClose = () => {
+    setOpenModal(false);
+    setUpdate(false);
+  };
+
+  const newPost = (post) => {
+    console.log(post);
+    setItems((prevItems) => [...prevItems, post]);
+  };
+
+  const updatePost = (id) => {
+    modalOpen();
+    setUpdate(true);
+    const postToBeUpdated = items.find((item) => item.id === id);
+    setPostToUpdate({ ...postToBeUpdated });
+  };
+
+  const onPostUpdate = (id, post) => {
+    const neww = items.map((item) => {
+      if (item.id === id) return post;
+      return item;
+    });
+
+    setItems(neww);
+  };
+
+  // Delayed page rendering in order to make Preloader visible (Not necessary)
   useMemo(() => {
     let v = 0;
     while (v < 900000000) {
@@ -55,7 +91,7 @@ const Home = () => {
       <Row>
         <Center>
           <Header />
-          <Nav />
+          <Nav handleClick={modalOpen} />
           {items.map((item, i) => (
             <PostCard
               key={i}
@@ -63,6 +99,7 @@ const Home = () => {
               title={item.title}
               body={item.body}
               handleDelete={removePost}
+              handleModal={updatePost}
             />
           ))}
           <Button
@@ -70,8 +107,22 @@ const Home = () => {
             text={items.length > 0 && isFetching ? <Spinner /> : "Load More"}
             handleClick={loadMore}
           />
-
           <Footer />
+          {openModal && (
+            <ModalLayout>
+              <ModalChild>
+                <Button handleClick={modalClose} text="close" type="btn--sm" />
+                {update ? (
+                  <UpdateForm
+                    updatePost={postToUpdate}
+                    handleUpdatedPost={onPostUpdate}
+                  />
+                ) : (
+                  <PostForm handleNewPost={newPost} />
+                )}
+              </ModalChild>
+            </ModalLayout>
+          )}
         </Center>
       </Row>
     </>

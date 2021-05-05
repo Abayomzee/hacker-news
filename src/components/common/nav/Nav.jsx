@@ -2,11 +2,10 @@ import React from "react";
 import Button from "./../button/Button";
 import "./nav.scss";
 
-const Nav = () => {
+const Nav = ({ handleClick }) => {
   return (
     <nav className="nav">
-      <Button type="btn--sm" text="New" />
-      <Button type="btn--sm" text="Past" />
+      <Button type="btn--sm" text="Create post" handleClick={handleClick} />
     </nav>
   );
 };

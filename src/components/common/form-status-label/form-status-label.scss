@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+$main-font: "Open Sans", sans-serif;
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0.2;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-status-label {
+  padding: 4px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  animation: slideFromLeft 0.3s ease-in-out;
+
+  &.success {
+    background-color: rgba(0, 128, 0, 0.116);
+    border: 1px solid rgba(0, 128, 0, 0.452);
+    color: rgba(0, 102, 0, 0.767);
+    font-size: 13px;
+    font-family: $main-font;
+  }
+  &.failure {
+    background-color: rgba(255, 0, 0, 0.247);
+    border: 1px solid rgba(255, 0, 0, 0.452);
+  }
+}
