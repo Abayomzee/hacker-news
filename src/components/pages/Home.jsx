@@ -74,7 +74,6 @@ const Home = () => {
       if (item.id === id) return post;
       return item;
     });
-
     setItems(neww);
   };
 
